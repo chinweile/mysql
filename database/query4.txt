@@ -1,0 +1,22 @@
+-- Query the number of movie tickets purchased by each member
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL guest_name FORMAT A30 HEADING "Guest Name"
+COL tickets_bought FORMAT 9999 HEADING "Tickets Bought"
+TTITLE CENTER 'Number of Tickets Bought by Each Member' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT M.guest_name, COUNT(T.ticket_id) AS tickets_bought
+FROM member M
+JOIN ticket T ON M.member_id = T.member_id
+WHERE T.schedule_id IN (
+    SELECT schedule_id FROM movieschedule
+    WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+)
+GROUP BY M.guest_name;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF

@@ -1,0 +1,10 @@
+insert into hall (hall_id, hall_price, hall_capacity) values ('H1', 150.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H2', 150.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H3', 150.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H4', 150.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H5', 150.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H6', 200.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H7', 200.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H8', 200.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H9', 200.00, 100);
+insert into hall (hall_id, hall_price, hall_capacity) values ('H10', 200.00, 100);

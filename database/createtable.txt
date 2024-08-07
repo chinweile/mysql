@@ -1,0 +1,102 @@
+create table hall(
+hall_id VARCHAR(10) NOT NULL,
+hall_price NUMBER(6,2),
+hall_capacity NUMBER(3),
+PRIMARY KEY(hall_id)
+);
+
+create table movie(
+movie_id VARCHAR(10) NOT NULL,
+movie_name VARCHAR(80),
+movie_genre VARCHAR(20),
+movie_duration VARCHAR(20),
+PRIMARY KEY(movie_id)
+);
+
+create table member(
+member_id VARCHAR(10) NOT NULL,
+guest_name VARCHAR(30),
+guest_email VARCHAR(30),
+guest_phoneNumber VARCHAR(11),
+PRIMARY KEY(member_id)
+);
+
+
+create table payment(
+payment_id VARCHAR(10) NOT NULL,
+payment_method VARCHAR(30),
+ticket_id VARCHAR(10),
+PRIMARY KEY(payment_id)
+);
+
+create table seat(
+seat_number NUMBER(2) NOT NULL,
+seat_type VARCHAR(15),
+PRIMARY KEY(seat_number)
+);
+
+
+create table event(
+event_id VARCHAR(10) NOT NULL,
+event_theme VARCHAR(30),
+event_date DATE,
+event_time VARCHAR(10),
+hall_id VARCHAR(10),
+PRIMARY KEY(event_id),
+FOREIGN KEY(hall_id) REFERENCES hall(hall_id)
+);
+
+create table movieschedule (
+schedule_id VARCHAR(10) NOT NULL,
+movie_time VARCHAR(10),
+movie_date DATE,
+hall_id VARCHAR(10),
+movie_id VARCHAR(10),
+PRIMARY KEY(schedule_id),
+FOREIGN KEY(hall_id) REFERENCES hall(hall_id),
+FOREIGN KEY(movie_id) REFERENCES movie(movie_id)
+);
+
+create table ticket(
+ticket_id VARCHAR(10) NOT NULL,
+price NUMBER(2),
+schedule_id VARCHAR(10),
+member_id VARCHAR(10),
+payment_id VARCHAR(10),
+PRIMARY KEY(ticket_id),
+FOREIGN KEY(schedule_id) REFERENCES movieschedule(schedule_id),
+FOREIGN KEY(member_id) REFERENCES member(member_id),
+FOREIGN KEY(payment_id) REFERENCES payment(payment_id)
+);
+
+
+create table cancelation(
+cancel_id VARCHAR(10) NOT NULL,
+cancel_reason VARCHAR(50),
+ticket_id VARCHAR(10),
+PRIMARY KEY(cancel_id),
+FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id)
+);
+
+
+create table refund(
+refund_id VARCHAR(10) NOT NULL,
+refund_method VARCHAR(40),
+cancel_id VARCHAR(10),
+PRIMARY KEY(refund_id),
+FOREIGN KEY(cancel_id) REFERENCES cancelation(cancel_id)
+);
+
+
+create table ticketseat(
+seat_number NUMBER(2) NOT NULL,
+ticket_id VARCHAR(10) NOT NULL,
+PRIMARY KEY(seat_number,ticket_id),
+FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id),
+FOREIGN KEY(seat_number) REFERENCES seat(seat_number)
+);
+
+
+
+
+

@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query8.txt
+
+Session altered.
+
+ Enter the start date: 10-5-2021
+ Enter the end date : 10-5-2023
+old   6: WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   6: WHERE MS.movie_date BETWEEN '10-5-2021' and '10-5-2023'
+
+                                           Average Ticket Price for Each Hall                              Page No:    1
+                                                                                                                        
+Hall ID    Average Price (RM)                                                                                           
+---------- ------------------                                                                                           
+H4                     $28.40                                                                                           
+H3                     $28.93                                                                                           
+H9                     $24.38                                                                                           
+H6                     $24.21                                                                                           
+H10                    $29.16                                                                                           
+H7                     $27.90                                                                                           
+H8                     $25.69                                                                                           
+H1                     $28.27                                                                                           
+H5                     $27.14                                                                                           
+H2                     $26.82                                                                                           
+
+10 rows selected.
+
+SQL> spool off

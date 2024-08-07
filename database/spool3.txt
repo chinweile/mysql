@@ -1,0 +1,19 @@
+SQL> start C:\Users\User\Desktop\query3.txt
+
+Session altered.
+
+ Enter the start date: 04-02-2021
+ Enter the end date : 20-01-2023
+old   8:     WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   8:     WHERE movie_date BETWEEN '04-02-2021' and '20-01-2023'
+
+                                        Total Refund for Each Cancellation Reason                          Page No:    1
+                                                                                                                        
+Cancellation Reason                                Total Refund (RM)                                                    
+-------------------------------------------------- -----------------                                                    
+Movie Cancellation                                           $984.00                                                    
+Financial Constraints                                        $817.00                                                    
+Change of Plans                                             $1122.00                                                    
+Illness or Emergency                                         $795.00                                                    
+
+SQL> spool off

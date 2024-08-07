@@ -1,0 +1,25 @@
+-- Query to find out the total refund amount for each cancellation reason
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL cancel_reason FORMAT A50 HEADING "Cancellation Reason"
+COL total_refund FORMAT $99,9999.99 HEADING "Total Refund (RM)"
+TTITLE CENTER 'Total Refund for Each Cancellation Reason' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT C.cancel_reason, SUM(T.price * TS.seat_count) AS total_refund
+FROM cancelation C
+JOIN ticket T ON C.ticket_id = T.ticket_id
+JOIN refund R ON C.cancel_id = R.cancel_id
+JOIN (SELECT ticket_id, COUNT(seat_number) AS seat_count FROM ticketseat GROUP BY ticket_id) TS ON T.ticket_id = TS.ticket_id
+WHERE T.schedule_id IN (
+    SELECT schedule_id FROM movieschedule
+    WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+)
+GROUP BY C.cancel_reason;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF
+

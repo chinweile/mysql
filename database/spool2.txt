@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query2.txt
+
+Session altered.
+
+ Enter the start date: 02-02-2022
+ Enter the end date : 09-09-2023
+old   9:     WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   9:     WHERE movie_date BETWEEN '02-02-2022' and '09-09-2023'
+
+                                              Total Refund for Each Member                                 Page No:    1
+                                                                                                                        
+Guest Name                     Total Refund (RM)                                                                        
+------------------------------ -----------------                                                                        
+Perkin Springford                         316.00                                                                        
+Myrna Woodlands                           432.00                                                                        
+Elmo Dee                                  247.00                                                                        
+Fidelity Simeoni                          280.00                                                                        
+Agnese Bawden                             366.00                                                                        
+Giuseppe Maryin                           228.00                                                                        
+Deirdre Marnes                            123.00                                                                        
+Vonny Dener                                66.00                                                                        
+Jaquenette Caley                          264.00                                                                        
+Son Dring                                 498.00                                                                        
+
+10 rows selected.
+
+SQL> spool off

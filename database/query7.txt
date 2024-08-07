@@ -1,0 +1,22 @@
+--Query to calculate the total refund amount for each movie
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL movie_name FORMAT A50 HEADING "Movie Name"
+COL total_cancellation FORMAT $99,9999.99 HEADING "Total Cancellation (RM)"
+TTITLE CENTER 'Total Cancellation for Each Movie' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT M.movie_name, SUM(T.price * TS.seat_count) AS total_cancellation
+FROM cancelation C
+JOIN ticket T ON C.ticket_id = T.ticket_id
+JOIN movieschedule MS ON T.schedule_id = MS.schedule_id
+JOIN movie M ON MS.movie_id = M.movie_id
+JOIN (SELECT ticket_id, COUNT(seat_number) AS seat_count FROM ticketseat GROUP BY ticket_id) TS ON T.ticket_id = TS.ticket_id
+WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+GROUP BY M.movie_name;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF

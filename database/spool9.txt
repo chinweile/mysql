@@ -1,0 +1,17 @@
+SQL> start C:\Users\User\Desktop\query9.txt
+
+Session altered.
+
+ Enter the start date: 01-2-2021
+ Enter the end date : 14-09-2023
+old   7:     WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   7:     WHERE movie_date BETWEEN '01-2-2021' and '14-09-2023'
+
+                                             Usage Count for Each Seat Type                                Page No:    1
+                                                                                                                        
+Seat Type       Usage Count                                                                                             
+--------------- -----------                                                                                             
+NORMAL seat             622                                                                                             
+VIP seat                661                                                                                             
+
+SQL> spool off

@@ -1,0 +1,23 @@
+-- Query the number of uses of each seat type
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL seat_type FORMAT A15 HEADING "Seat Type"
+COL usage_count FORMAT 9999 HEADING "Usage Count"
+TTITLE CENTER 'Usage Count for Each Seat Type' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT S.seat_type, COUNT(TS.seat_number) AS usage_count
+FROM seat S
+JOIN ticketseat TS ON S.seat_number = TS.seat_number
+JOIN ticket T ON TS.ticket_id = T.ticket_id
+WHERE T.schedule_id IN (
+    SELECT schedule_id FROM movieschedule
+    WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+)
+GROUP BY S.seat_type;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF

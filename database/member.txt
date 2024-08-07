@@ -1,0 +1,10 @@
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G1', 'Agnese Bawden', 'abawden0@creativecommons.org', '2491126031');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G2', 'Son Dring', 'sdring1@ebay.com', '3056270061');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G3', 'Myrna Woodlands', 'mwoodlands2@angelfire.com', '3653372612');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G4', 'Giuseppe Maryin', 'gmaryin3@yandex.ru', '2532368759');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G5', 'Deirdre Marnes', 'dmarnes4@businessweek.com', '5316360187');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G6', 'Elmo Dee', 'edee5@163.com', '8987871580');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G7', 'Jaquenette Caley', 'jcaley6@chronoengine.com', '5902744966');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G8', 'Perkin Springford', 'pspringford7@free.fr', '8246660600');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G9', 'Vonny Dener', 'vdener8@springer.com', '4383323314');
+insert into member (member_id, guest_name, guest_email, guest_phoneNumber) values ('G10', 'Fidelity Simeoni', 'fsimeoni9@wunderground.com', '1749823012');

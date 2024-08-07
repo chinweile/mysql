@@ -1,0 +1,22 @@
+--Query the number of times each payment method has been used
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL payment_method FORMAT A30 HEADING "Payment Method"
+COL usage_count FORMAT 9999 HEADING "Usage Count"
+TTITLE CENTER 'Usage Count for Each Payment Method' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT P.payment_method, COUNT(T.ticket_id) AS usage_count
+FROM payment P
+JOIN ticket T ON P.payment_id = T.payment_id
+WHERE T.schedule_id IN (
+    SELECT schedule_id FROM movieschedule
+    WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+)
+GROUP BY P.payment_method;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF

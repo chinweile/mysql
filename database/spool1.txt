@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query1.txt
+
+Session altered.
+
+ Enter the start date: 01-02-2021
+ Enter the end date : 04-06-2022
+old   6: WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   6: WHERE MS.movie_date BETWEEN '01-02-2021' and '04-06-2022'
+
+                                         Total Revenue for Each Movie08/05/2024                            Page No:    1
+                                                                                                                        
+Movie Name                     Total Revenue (RM)                                                                       
+------------------------------ ------------------                                                                       
+Alphaville                                 999.00                                                                       
+Zatoichi the Fugitive                      772.00                                                                       
+Diamond Dogs                               498.00                                                                       
+Secret of the Grain                        810.00                                                                       
+Moon-Spinners, The                         913.00                                                                       
+Angel Levine, The                          740.00                                                                       
+Grassroots                                1376.00                                                                       
+Renaissance Man                            523.00                                                                       
+Hunger Games                               925.00                                                                       
+McCullin                                   419.00                                                                       
+
+10 rows selected.
+
+SQL> spool off

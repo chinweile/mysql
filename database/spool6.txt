@@ -1,0 +1,19 @@
+SQL> start C:\Users\User\Desktop\query6.txt
+
+Session altered.
+
+ Enter the start date: 22-4-2021
+ Enter the end date : 16-10-2023
+old   6:     WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   6:     WHERE movie_date BETWEEN '22-4-2021' and '16-10-2023'
+
+                                           Usage Count for Each Payment Method                             Page No:    1
+                                                                                                                        
+Payment Method                 Usage Count                                                                              
+------------------------------ -----------                                                                              
+Bank Transfer                          137                                                                              
+Credit Card                            138                                                                              
+Cash                                   179                                                                              
+Mobile Payment                         169                                                                              
+
+SQL> spool off

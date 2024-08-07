@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query4.txt
+
+Session altered.
+
+ Enter the start date: 05-3-2021
+ Enter the end date : 09-8-2023
+old   6:     WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   6:     WHERE movie_date BETWEEN '05-3-2021' and '09-8-2023'
+
+                                         Number of Tickets Bought by Each Member                           Page No:    1
+                                                                                                                        
+Guest Name                     Tickets Bought                                                                           
+------------------------------ --------------                                                                           
+Perkin Springford                          67                                                                           
+Elmo Dee                                   54                                                                           
+Fidelity Simeoni                           60                                                                           
+Myrna Woodlands                            67                                                                           
+Deirdre Marnes                             57                                                                           
+Giuseppe Maryin                            57                                                                           
+Vonny Dener                                62                                                                           
+Agnese Bawden                              57                                                                           
+Jaquenette Caley                           60                                                                           
+Son Dring                                  66                                                                           
+
+10 rows selected.
+
+SQL> spool off

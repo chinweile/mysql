@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query7.txt
+
+Session altered.
+
+ Enter the start date: 09-03-2022
+ Enter the end date : 03-03-2023
+old   7: WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   7: WHERE MS.movie_date BETWEEN '09-03-2022' and '03-03-2023'
+
+                                            Total Cancellation for Each Movie                              Page No:    1
+                                                                                                                        
+Movie Name                                         Total Cancellation (RM)                                              
+-------------------------------------------------- -----------------------                                              
+Diamond Dogs                                                       $256.00                                              
+Zatoichi the Fugitive                                               $87.00                                              
+Alphaville                                                         $242.00                                              
+Secret of the Grain                                                $573.00                                              
+Moon-Spinners, The                                                 $394.00                                              
+Angel Levine, The                                                  $292.00                                              
+Grassroots                                                         $425.00                                              
+Renaissance Man                                                    $253.00                                              
+Hunger Games                                                       $464.00                                              
+McCullin                                                           $575.00                                              
+
+10 rows selected.
+
+SQL> spool off

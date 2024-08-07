@@ -1,0 +1,27 @@
+SQL> start C:\Users\User\Desktop\query5.txt
+
+Session altered.
+
+ Enter the start date: 03-2-2021
+ Enter the end date : 28-9-2023
+old   6: WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+new   6: WHERE MS.movie_date BETWEEN '03-2-2021' and '28-9-2023'
+
+                                                Seat Usage for Each Hall                                   Page No:    1
+                                                                                                                        
+Hall ID    Seat Usage                                                                                                   
+---------- ----------                                                                                                   
+H3                119                                                                                                   
+H4                 93                                                                                                   
+H6                123                                                                                                   
+H9                102                                                                                                   
+H8                107                                                                                                   
+H7                171                                                                                                   
+H10               189                                                                                                   
+H1                122                                                                                                   
+H5                135                                                                                                   
+H2                132                                                                                                   
+
+10 rows selected.
+
+SQL> spool off

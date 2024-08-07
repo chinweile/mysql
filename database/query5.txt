@@ -1,0 +1,21 @@
+-- Check the seat occupancy rate of each cinema hall
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL hall_id FORMAT A10 HEADING "Hall ID"
+COL seat_usage FORMAT 9999 HEADING "Seat Usage"
+TTITLE CENTER 'Seat Usage for Each Hall' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT H.hall_id, COUNT(TS.seat_number) AS seat_usage
+FROM hall H
+JOIN movieschedule MS ON H.hall_id = MS.hall_id
+JOIN ticket T ON MS.schedule_id = T.schedule_id
+JOIN ticketseat TS ON T.ticket_id = TS.ticket_id
+WHERE MS.movie_date BETWEEN '&v_startDate' and '&v_endDate'
+GROUP BY H.hall_id;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF

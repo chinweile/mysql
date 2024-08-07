@@ -1,0 +1,10 @@
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M1', 'Hunger Games', 'Drama', 124);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M2', 'Renaissance Man', 'Comedy|Drama', 121);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M3', 'Angel Levine', 'Comedy|Drama', 118);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M4', 'McCullin', 'Documentary', 116);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M5', 'Moon-Spinners', 'Children|Mystery', 107);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M6', 'Alphaville', 'Drama|Mystery', 126);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M7', 'Zatoichi the Fugitive', 'Action|Drama', 111);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M8', 'Secret of the Grain', 'Drama', 115);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M9', 'Diamond Dogs', 'Action|Adventure', 104);
+insert into movie (movie_id, movie_name, movie_genre, movie_duration) values ('M10', 'Grassroots', 'Comedy|Drama', 103);

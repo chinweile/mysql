@@ -1,0 +1,25 @@
+--Query the total refund amount for each member
+SET linesize 120
+SET pagesize 35
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+ACCEPT v_startDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the start date: '
+ACCEPT v_endDate DATE FORMAT 'dd/mm/yyyy' PROMPT ' Enter the end date : '
+COL guest_name FORMAT A30 HEADING "Guest Name"
+COL total_refund FORMAT 99,9999.99 HEADING "Total Refund (RM)"
+TTITLE CENTER 'Total Refund for Each Member' -
+RIGHT 'Page No: ' FORMAT 999 SQL.PNO SKIP 2
+SELECT M.guest_name, SUM(T.price * TS.seat_count) AS total_refund
+FROM member M
+JOIN ticket T ON M.member_id = T.member_id
+JOIN cancelation C ON T.ticket_id = C.ticket_id
+JOIN refund R ON C.cancel_id = R.cancel_id
+JOIN (SELECT ticket_id, COUNT(seat_number) AS seat_count FROM ticketseat GROUP BY ticket_id) TS ON T.ticket_id = TS.ticket_id
+WHERE T.schedule_id IN (
+    SELECT schedule_id FROM movieschedule
+    WHERE movie_date BETWEEN '&v_startDate' and '&v_endDate'
+)
+GROUP BY M.guest_name;
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
+TTITLE OFF
